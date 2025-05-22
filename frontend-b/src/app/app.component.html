@@ -1,0 +1,14 @@
+<div class="busqueda-container">
+  <input
+    type="text"
+    [(ngModel)]="busqueda"
+    (input)="onInput($event)"
+    placeholder="Buscar doctor por nombre"
+  />
+
+  <ul class="sugerencias" *ngIf="mostrarLista && resultados.length > 0">
+    <li *ngFor="let doctor of resultados" (click)="seleccionarDoctor(doctor)">
+      {{ doctor.nombre }} {{ doctor.apellido }} - {{ doctor.especialidad }}
+    </li>
+  </ul>
+</div>
